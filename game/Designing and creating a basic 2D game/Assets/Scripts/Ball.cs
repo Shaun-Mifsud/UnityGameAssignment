@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour {
     static int globalLscore = 0;
-    int globalRscore = 0;
-    static int leftscore = 0;
-    static int rightscore = 0;
+    static int globalRscore = 0;
+    int leftscore = 0;
+    int rightscore = 0;
 
     float randX, randY;
     private Paddle myPaddle;
@@ -19,11 +19,15 @@ public class Ball : MonoBehaviour {
     public Text RightText;
 
 
-    //starting
-    void Start()
+    private void Awake()
     {
         leftscore = 0;
         rightscore = 0;
+    }
+
+    //starting
+    void Start()
+    {
 
         startPostion = GameObject.Find("ball").transform.position;
 
@@ -58,16 +62,10 @@ public class Ball : MonoBehaviour {
         if (colName.gameObject.name == "LeftBorder")
         {
             rightscore++;
+
             if (SceneManager.GetActiveScene().Equals("Level_1") && leftscore == 3 || rightscore == 3)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (SceneManager.GetActiveScene().Equals("Level_2") && leftscore == 5 || rightscore == 5)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (SceneManager.GetActiveScene().Equals("Level_3") && leftscore == 8 || rightscore == 8)
-            {
+                globalRscore = globalRscore + rightscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
@@ -75,25 +73,14 @@ public class Ball : MonoBehaviour {
                 hasStarted = false;
             }
         }
-        else
-        {
-
-        }
-            
+  
 
         if (colName.gameObject.name == "RightBorder")
         {
             leftscore++;
             if (SceneManager.GetActiveScene().Equals("Level_1") && rightscore == 3 || leftscore == 3)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (SceneManager.GetActiveScene().Equals("Level_2") && leftscore == 5 || rightscore == 5)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (SceneManager.GetActiveScene().Equals("Level_3") && leftscore == 8 || rightscore == 8)
-            {
+                globalLscore = globalLscore + leftscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
