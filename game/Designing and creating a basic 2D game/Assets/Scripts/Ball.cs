@@ -63,7 +63,12 @@ public class Ball : MonoBehaviour {
         {
             rightscore++;
 
-            if (SceneManager.GetActiveScene().Equals("Level_1") && leftscore == 3 || rightscore == 3)
+            if (leftscore == 3 || rightscore == 3)
+            {
+                globalRscore = globalRscore + rightscore;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            if(leftscore == 5 || rightscore == 5)
             {
                 globalRscore = globalRscore + rightscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -81,6 +86,11 @@ public class Ball : MonoBehaviour {
             if (SceneManager.GetActiveScene().Equals("Level_1") && rightscore == 3 || leftscore == 3)
             {
                 globalLscore = globalLscore + leftscore;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            if (leftscore == 5 || rightscore == 5)
+            {
+                globalRscore = globalRscore + rightscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
