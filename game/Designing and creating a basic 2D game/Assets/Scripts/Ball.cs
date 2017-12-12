@@ -57,18 +57,17 @@ public class Ball : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D colName)
-    {   
+    {
 
         if (colName.gameObject.name == "LeftBorder")
         {
-            rightscore++;
-
-            if (leftscore == 3 || rightscore == 3)
+            leftscore++;
+            if (SceneManager.GetActiveScene().Equals("Level_1") && rightscore == 3 || leftscore == 3)
             {
-                globalRscore = globalRscore + rightscore;
+                globalLscore = globalLscore + leftscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
-            if(leftscore == 5 || rightscore == 5)
+            if (leftscore == 5 || rightscore == 5)
             {
                 globalRscore = globalRscore + rightscore;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -78,7 +77,7 @@ public class Ball : MonoBehaviour {
                 hasStarted = false;
             }
         }
-  
+
 
         if (colName.gameObject.name == "RightBorder")
         {
