@@ -8,6 +8,11 @@ public class level3 : MonoBehaviour
     public static int leftscore = 0;
     public static int rightscore = 0;
 
+    void Start()
+    {
+        leftscore = 0;
+        rightscore = 0;
+    }
 
     void Update()
     {

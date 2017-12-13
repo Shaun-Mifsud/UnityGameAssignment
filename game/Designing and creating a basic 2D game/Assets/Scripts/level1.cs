@@ -8,13 +8,24 @@ public class level1 : MonoBehaviour
     public static int leftscore = 0;
     public static int rightscore = 0;
 
-    private void Start()
+    void Start()
     {
         leftscore = 0;
         rightscore = 0;
     }
 
+    private void Update()
+    {
+        if (leftscore == 3)
+        {
+            NextLevel();
+        }
 
+        else if (rightscore == 3)
+        {
+            NextLevel();
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D collName)
     {
@@ -30,15 +41,7 @@ public class level1 : MonoBehaviour
             leftscore++;
         }
 
-        else if (leftscore == 3)
-        {
-            NextLevel();
-        }
-
-        else if (rightscore == 3)
-        {
-            NextLevel();
-        }
+        
     }
 
     void OnGUI()

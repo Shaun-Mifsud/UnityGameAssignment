@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Ball : MonoBehaviour {
-    int leftscore = 0;
-    int rightscore = 0;
 
     float randX, randY;
     private Paddle myPaddle;
@@ -17,7 +15,8 @@ public class Ball : MonoBehaviour {
     //starting
     void Start()
     {
-
+        int leftscore = 0;
+        int rightscore = 0;
         startPostion = GameObject.Find("ball").transform.position;
 
         randX = Random.Range(0f, 0.2f);

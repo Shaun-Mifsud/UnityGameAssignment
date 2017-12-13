@@ -9,6 +9,12 @@ public class level2 : MonoBehaviour
     public static int rightscore = 0;
 
 
+    void Start()
+    {
+        leftscore = 0;
+        rightscore = 0;
+    }
+
     void Update()
     {
         if (leftscore == 5)
