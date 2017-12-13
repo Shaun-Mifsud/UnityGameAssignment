@@ -222,6 +222,9 @@
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\block.cs" />
     <Compile Include="Assets\Scripts\block2.cs" />
+    <Compile Include="Assets\Scripts\level1.cs" />
+    <Compile Include="Assets\Scripts\level2.cs" />
+    <Compile Include="Assets\Scripts\level3.cs" />
     <Compile Include="Assets\Scripts\levelManager.cs" />
     <Compile Include="Assets\Scripts\MousePaddle.cs" />
     <Compile Include="Assets\Scripts\Paddle.cs" />

@@ -56,49 +56,17 @@ public class Ball : MonoBehaviour {
 
     }
 
+ 
+    
+
     void OnCollisionEnter2D(Collision2D colName)
     {
-
-        if (colName.gameObject.name == "LeftBorder")
+        if (colName.gameObject.name == "LeftBorder" || colName.gameObject.name == "RightBorder")
         {
-            leftscore++;
-            if (SceneManager.GetActiveScene().Equals("Level_1") && rightscore == 3 || leftscore == 3)
-            {
-                globalLscore = globalLscore + leftscore;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (leftscore == 5 || rightscore == 5)
-            {
-                globalRscore = globalRscore + rightscore;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else
-            {
-                hasStarted = false;
-            }
+            hasStarted = false;
         }
 
-
-        if (colName.gameObject.name == "RightBorder")
-        {
-            leftscore++;
-            if (SceneManager.GetActiveScene().Equals("Level_1") && rightscore == 3 || leftscore == 3)
-            {
-                globalLscore = globalLscore + leftscore;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            if (leftscore == 5 || rightscore == 5)
-            {
-                globalRscore = globalRscore + rightscore;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else
-            {
-                hasStarted = false;
-            }
-        }
-
-        if (colName.gameObject.name == "TopBorder" || colName.gameObject.name == "bottomBorder")
+            if (colName.gameObject.name == "TopBorder" || colName.gameObject.name == "bottomBorder")
         {
             randX = Random.Range(-0.2f,0f);
             Vector2 tweak = new Vector2(randY,randX);
@@ -113,6 +81,7 @@ public class Ball : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity += tweak;
         }
     }
+}
 
     
-}
+
