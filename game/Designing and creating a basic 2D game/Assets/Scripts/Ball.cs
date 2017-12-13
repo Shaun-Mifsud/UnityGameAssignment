@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Ball : MonoBehaviour {
-    static int globalLscore = 0;
-    static int globalRscore = 0;
     int leftscore = 0;
     int rightscore = 0;
 
@@ -15,15 +13,6 @@ public class Ball : MonoBehaviour {
     private Vector3 paddleVector;
     private bool hasStarted;
     private Vector2 startPostion;
-    public Text LeftText;
-    public Text RightText;
-
-
-    private void Awake()
-    {
-        leftscore = 0;
-        rightscore = 0;
-    }
 
     //starting
     void Start()
@@ -37,15 +26,13 @@ public class Ball : MonoBehaviour {
         myPaddle = GameObject.FindObjectOfType<Paddle>();
         paddleVector = this.transform.position - myPaddle.transform.position;
 
-        LeftText = GetComponent<Text>();
-        RightText = GetComponent<Text>();
     }
 
     void Update()
     {
         if (!hasStarted)
         {
-             this.transform.position = myPaddle.transform.position + paddleVector;
+            this.transform.position = myPaddle.transform.position + paddleVector;
 
             if (Input.GetKeyDown("space"))
             {
@@ -53,7 +40,6 @@ public class Ball : MonoBehaviour {
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(15f, 5f);
             }
         }
-
     }
 
  

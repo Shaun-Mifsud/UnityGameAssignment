@@ -27,21 +27,23 @@ public class level3 : MonoBehaviour
 
         if (collName.gameObject.name == "LeftBorder")
         {
-            leftscore++;
+            rightscore++;
         }
 
         if (collName.gameObject.name == "RightBorder")
         {
-            rightscore++;
+            leftscore++;
         }
     }
 
-    /*    void OnGUI()
-        {
-            GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "" + PlayerScore1);
-            GUI.Label(new Rect(Screen.width / 2 + 150 + 12, 20, 100, 100), "" + PlayerScore2);
-        }
-    */
+    void OnGUI()
+    {
+        GUIStyle myStyle = new GUIStyle();
+        myStyle.fontSize = 50;
+        GUI.Label(new Rect(Screen.width / 2 - 400 - 12, 20, 100, 100), "" + leftscore, myStyle);
+        GUI.Label(new Rect(Screen.width / 2 + 400 + 12, 20, 100, 100), "" + rightscore, myStyle);
+    }
+
     void UpLevel()
     {
         SceneManager.LoadScene("End_Screen");
