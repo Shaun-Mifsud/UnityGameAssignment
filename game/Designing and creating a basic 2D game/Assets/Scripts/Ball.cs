@@ -12,6 +12,10 @@ public class Ball : MonoBehaviour {
     private bool hasStarted;
     private Vector2 startPostion;
 
+    private float currentSpeed = 0.0f;
+    private float acc=1.0f;
+    private float MaxSpeed = 100.0f;
+
     //starting
     void Start()
     {
@@ -29,6 +33,14 @@ public class Ball : MonoBehaviour {
 
     void Update()
     {
+        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+        currentSpeed += acc * Time.deltaTime;
+
+        if (currentSpeed>MaxSpeed)
+        {
+            currentSpeed = MaxSpeed;
+        }
+  
         if (!hasStarted)
         {
             this.transform.position = myPaddle.transform.position + paddleVector;
@@ -39,6 +51,7 @@ public class Ball : MonoBehaviour {
                 this.GetComponent<Rigidbody2D>().velocity = new Vector2(15f, 5f);
             }
         }
+
     }
 
  
